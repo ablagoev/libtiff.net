@@ -28,18 +28,7 @@
     <DefineConstants Condition="'$(TargetFramework)'=='net40'">TRACE;EXPOSE_LIBTIFF;FIX_JPEG_IS_OJPEG</DefineConstants>
     <OutputPath>..\Result\</OutputPath>
   </PropertyGroup>
-  
-  <ItemGroup>
-    <Compile Include="..\AssemblyVersion.cs" Link="Properties\AssemblyVersion.cs" />
-  </ItemGroup>
-  
-  <PropertyGroup>
-    <PreBuildEvent>cd "$(SolutionDir)"
-update_version_info.bat "$(ProjectDir)AssemblyVersion.cs"</PreBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup>
-    <PostBuildEvent>"$(SolutionDir)replace.vbs" O: Overload: "$(TargetDir)BitMiracle.LibTiff.NET.xml"</PostBuildEvent>
-  </PropertyGroup>
+ 
   <PropertyGroup Condition="'$(Configuration)'=='Release'">
     <Optimize>true</Optimize>
   </PropertyGroup>

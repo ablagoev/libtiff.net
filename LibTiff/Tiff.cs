@@ -1393,6 +1393,11 @@ namespace BitMiracle.LibTiff.Classic
                 if (dir[i].tdir_tag == TiffTag.IGNORE)
                     continue;
 
+                // Ignore photoshop layers tag, as it is usually quite big
+                // which slows down the opening of the tiff
+                if (((int)dir[i].tdir_tag) == 37724)
+                    continue;
+
                 switch (dir[i].tdir_tag)
                 {
                     case TiffTag.MINSAMPLEVALUE:
